@@ -1,0 +1,164 @@
+[[main]]
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[main]]
+  name = "About"
+  url = "/about.html"
+  weight = 20
+
+[[main]]
+  name = "Features"
+  parent = "About"
+  url = "/features.html"
+  weight = 21
+
+[[main]]
+  name = "Plugins"
+  parent = "About"
+  url = "/plugins.html"
+  weight = 22
+
+[[main]]
+  name = "Apps"
+  parent = "About"
+  url = "/apps.html"
+  weight = 23
+
+[[main]]
+  name = "Screenshots"
+  parent = "About"
+  url = "/screenshots.html"
+  weight = 24
+
+[[main]]
+  name = "Install"
+  url = "/install.html"
+  weight = 30
+
+[[main]]
+  name = "Download"
+  url = "/download.html"
+  weight = 40
+
+[[main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 50
+
+[[footer]]
+  name = "Social"
+  identifier = "social"
+  weight = 10
+
+[[footer]]
+  name = "YouTube"
+  parent = "social"
+  pre = "si-youtube"
+  url = "https://www.youtube.com/user/openmediavault"
+  weight = 11
+
+[[footer]]
+  name = "Mastodon"
+  parent = "social"
+  pre = "si-mastodon"
+  url = "https://fosstodon.org/@openmediavault"
+  weight = 12
+
+[[footer]]
+  name = "X"
+  parent = "social"
+  pre = "si-x"
+  url = "https://x.com/OpenMediaVault"
+  weight = 13
+
+[[footer]]
+  name = "Bluesky"
+  parent = "social"
+  pre = "si-bluesky"
+  url = "https://bsky.app/profile/openmediavault.bsky.social"
+  weight = 14
+
+[[footer]]
+  name = "RSS"
+  parent = "social"
+  pre = "mdi-rss"
+  url = "/blog/index.xml"
+  weight = 15
+
+[[footer]]
+  name = "Resources"
+  identifier = "resources"
+  weight = 20
+
+[[footer]]
+  name = "Forum"
+  parent = "resources"
+  url = "https://forum.openmediavault.org/"
+  weight = 21
+
+[[footer]]
+  name = "Stores"
+  parent = "resources"
+  url = "/stores.html"
+  weight = 22
+
+[[footer]]
+  name = "Bugreport"
+  parent = "resources"
+  url = "https://github.com/openmediavault/openmediavault/issues/new/choose"
+  weight = 23
+
+[[footer]]
+  name = "Sourcecode"
+  parent = "resources"
+  url = "https://github.com/openmediavault/openmediavault/"
+  weight = 24
+
+[[footer]]
+  name = "Documentation"
+  parent = "resources"
+  url = "https://docs.openmediavault.org/"
+  weight = 25
+
+[[footer]]
+  name = "Information"
+  identifier = "information"
+  weight = 30
+
+[[footer]]
+  name = "Contributor Agreement"
+  parent = "information"
+  url = "/contributoragreement.html"
+  weight = 31
+
+[[footer]]
+  name = "Credits"
+  parent = "information"
+  url = "/credits.html"
+  weight = 32
+
+[[footer]]
+  name = "Donate"
+  parent = "information"
+  url = "/donate.html"
+  weight = 33
+
+[[footer]]
+  name = "Imprint"
+  parent = "information"
+  url = "/imprint.html"
+  weight = 34
+
+[[footer]]
+  name = "Privacy Policy"
+  parent = "information"
+  url = "/privacy-statement.html"
+  weight = 35
+
+[[footer]]
+  name = "Licensing"
+  parent = "information"
+  url = "/licensing.html"
+  weight = 36

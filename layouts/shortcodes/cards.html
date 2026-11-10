@@ -1,0 +1,3 @@
+{{- /* Grid of cards: {{< cards cols="2" >}}{{< card >}}...{{< /card >}}{{< /cards >}}. Styles in assets/css/custom.css */ -}}
+<div class="omv-cards{{ with .Get "cols" }} omv-cards-{{ . }}{{ end }}">{{ .Inner }}</div>
+{{- /**/ -}}

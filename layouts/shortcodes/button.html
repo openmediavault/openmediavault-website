@@ -1,0 +1,9 @@
+{{- /* {{< button href="/download.html" icon="mdi-download" sub="Second line" class="outline" center="true" >}}Label{{< /button >}}, rendered by partials/omv-button.html */ -}}
+{{- $href := "" -}}
+{{- with .Get "pageRef" -}}
+  {{- $href = relref $.Page . -}}
+{{- else -}}
+  {{- $href = $.Get "href" -}}
+{{- end -}}
+{{- $button := partial "omv-button.html" (dict "label" .Inner "href" $href "class" (.Get "class") "icon" (.Get "icon") "sub" (.Get "sub") "target" (.Get "target") "rel" (.Get "rel")) -}}
+{{- if .Get "center" }}<p class="omv-center">{{ $button }}</p>{{ else }}{{ $button }}{{ end -}}

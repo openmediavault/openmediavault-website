@@ -1,0 +1,47 @@
+baseURL = "https://www.openmediavault.org/"
+title = "openmediavault"
+theme = "blowfish"
+defaultContentLanguage = "en"
+timeZone = "Europe/Berlin"
+
+enableRobotsTXT = true
+summaryLength = 25
+enableEmoji = true
+buildDrafts = false
+buildFuture = false
+
+[pagination]
+  pagerSize = 50
+
+[imaging]
+  anchor = "Center"
+
+[taxonomies]
+  category = "categories"
+
+[permalinks.page]
+  blog = "/blog/:year/:month/:slug/"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[services.rss]
+  limit = 50
+
+[related]
+  threshold = 0
+  toLower = false
+
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+
+  [[related.indices]]
+    name = "date"
+    weight = 10

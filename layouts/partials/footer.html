@@ -1,0 +1,26 @@
+<footer id="site-footer" class="omv-footer print:hidden">
+  {{ with site.Menus.footer }}
+    <div class="omv-footer-widgets">
+      <div class="omv-footer-inner">
+        {{ range . }}
+          <section>
+            <h4>{{ .Name }}</h4>
+            <ul>
+              {{ range .Children }}
+                <li>
+                  <a href="{{ .URL }}"{{ if hasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>
+                    {{ with .Pre }}<span class="omv-footer-icon">{{ partial "icon.html" . }}</span>{{ end }}
+                    {{ .Name }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+          </section>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+  {{ if templates.Exists "partials/extend-footer.html" }}
+    {{ partialCached "extend-footer.html" . }}
+  {{ end }}
+</footer>

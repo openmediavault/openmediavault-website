@@ -1,0 +1,23 @@
+{{- /* Paginated list of news posts with GeneratePress-like page numbers. */ -}}
+{{- $paginator := .Paginate .RegularPages 5 -}}
+{{ range $paginator.Pages }}
+  {{ partial "omv-post.html" (dict "page" . "style" "list") }}
+{{ end }}
+{{ if gt $paginator.TotalPages 1 }}
+  {{ $cur := $paginator.PageNumber }}
+  {{ $last := $paginator.TotalPages }}
+  <nav class="omv-pager" aria-label="Archive Page">
+    {{ with $paginator.Prev }}{{ partial "omv-button.html" (dict "label" "← Previous" "href" .URL "class" "outline") }}{{ end }}
+    {{ $dots := false }}
+    {{ range $paginator.Pagers }}
+      {{ $n := .PageNumber }}
+      {{ if or (eq $n 1) (eq $n $last) (and (ge $n (sub $cur 1)) (le $n (add $cur 1))) }}
+        {{ $dots = false }}
+        {{ if eq $n $cur }}{{ partial "omv-button.html" (dict "label" $n "class" "current" "current" true) }}{{ else }}{{ partial "omv-button.html" (dict "label" $n "href" .URL "class" "outline") }}{{ end }}
+      {{ else if not $dots }}
+        {{ $dots = true }}<span class="omv-pager-gap">…</span>
+      {{ end }}
+    {{ end }}
+    {{ with $paginator.Next }}{{ partial "omv-button.html" (dict "label" "Next →" "href" .URL "class" "outline") }}{{ end }}
+  </nav>
+{{ end }}

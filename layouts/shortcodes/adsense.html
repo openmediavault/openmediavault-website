@@ -1,0 +1,10 @@
+{{- if and .Page.Params.ads site.Params.adsense.client -}}
+  {{- if hugo.IsServer -}}
+    <div class="omv-ad omv-ad-placeholder">AdSense placeholder (visible in <code>hugo server</code> only)</div>
+  {{- else -}}
+    <div class="omv-ad">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="{{ site.Params.adsense.client }}" data-ad-slot="{{ site.Params.adsense.slot }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  {{- end -}}
+{{- end -}}

@@ -1,0 +1,11 @@
+{{- /* Card with optional title and icon, the content is Markdown (e.g. an unordered list): {{< card title="Core" icon="mdi-home" >}}- Item{{< /card >}} */ -}}
+<div class="omv-card">
+  {{- with .Get "title" }}
+    <div class="omv-card-header">
+      {{- with $.Get "icon" }}<span class="omv-card-icon">{{ partial "icon.html" . }}</span>{{ end -}}
+      <h2 class="omv-card-title">{{ . }}</h2>
+    </div>
+  {{- end }}
+  <div class="omv-card-body">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
+</div>
+{{- /**/ -}}

@@ -1,0 +1,11 @@
+{{- $url := strings.TrimSuffix "/" .entry.URL -}}
+{{- $path := strings.TrimSuffix "/" .page.RelPermalink -}}
+{{- $cur := false -}}
+{{- if eq $url "" -}}
+  {{- $cur = .page.IsHome -}}
+{{- else if eq $url $path -}}
+  {{- $cur = true -}}
+{{- else if and (eq .entry.URL "/blog/") (hasPrefix .page.RelPermalink "/blog/") -}}
+  {{- $cur = true -}}
+{{- end -}}
+{{- return $cur -}}

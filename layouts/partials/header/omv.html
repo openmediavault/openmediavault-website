@@ -1,0 +1,78 @@
+{{- $page := . -}}
+{{- $logo := resources.Get (site.Params.logo | default "img/logo.svg") -}}
+<div class="omv-nav">
+  <div class="omv-nav-inner">
+    <a class="omv-logo" href="{{ "" | relLangURL }}">
+      <span class="sr-only">{{ site.Title }}</span>
+      {{ with $logo }}{{ .Content | safeHTML }}{{ end }}
+    </a>
+    <input type="checkbox" id="omv-nav-toggle" class="omv-nav-toggle" autocomplete="off" aria-label="{{ i18n "nav.main_menu" }}">
+    <label for="omv-nav-toggle" class="omv-burger" role="button" tabindex="0" aria-label="{{ i18n "nav.main_menu" }}">{{ partial "icon.html" "mdi-bars" }}</label>
+    <nav class="omv-menu" aria-label="{{ i18n "nav.main_menu" }}">
+      <ul>
+        {{ range site.Menus.main }}
+          {{ $entry := . }}
+          {{ $current := partial "omv-menu-current" (dict "entry" $entry "page" $page) }}
+          {{ range .Children }}
+            {{ if partial "omv-menu-current" (dict "entry" . "page" $page) }}{{ $current = true }}{{ end }}
+          {{ end }}
+          <li class="{{ if .HasChildren }}has-children{{ end }}{{ if $current }} current{{ end }}">
+            <a href="{{ .URL }}"{{ if hasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}{{ if $current }} aria-current="page"{{ end }}>
+              {{ .Name }}{{ if .HasChildren }}<span class="omv-chevron">{{ partial "icon.html" "mdi-chevron-down" }}</span>{{ end }}
+            </a>
+            {{ if .HasChildren }}
+              <button type="button" class="omv-sub-toggle" aria-expanded="false" aria-label="{{ .Name }}">{{ partial "icon.html" "mdi-chevron-down" }}</button>
+              <ul>
+                {{ range .Children }}
+                  <li{{ if partial "omv-menu-current" (dict "entry" . "page" $page) }} class="current"{{ end }}>
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </li>
+        {{ end }}
+        <li class="omv-tools">
+          {{ if site.Params.enableSearch | default false }}
+            <button id="search-button" type="button" aria-label="{{ i18n "search.open_button_title" }}" title="{{ i18n "search.open_button_title" }}">{{ partial "icon.html" "mdi-search" }}</button>
+          {{ end }}
+          {{ if site.Params.footer.showAppearanceSwitcher | default false }}
+            <button id="appearance-switcher" type="button" aria-label="{{ i18n "footer.dark_appearance" }}" title="{{ i18n "footer.dark_appearance" }}">
+              <span class="omv-dark-hide">{{ partial "icon.html" "mdi-moon" }}</span>
+              <span class="omv-dark-show">{{ partial "icon.html" "mdi-sun" }}</span>
+            </button>
+          {{ end }}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<script>
+  document.querySelectorAll(".omv-sub-toggle").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var open = b.parentElement.classList.toggle("open");
+      b.setAttribute("aria-expanded", open);
+    });
+  });
+</script>
+{{ with .Params.hero }}
+  <section class="omv-hero">
+    <div class="omv-hero-inner">
+      <h1 class="omv-hero-title">{{ .title }}</h1>
+      {{ with .subtitle }}<p class="omv-hero-subtitle">{{ . }}</p>{{ end }}
+      {{ with .text }}<p class="omv-hero-text">{{ . }}</p>{{ end }}
+      {{ with .buttons }}
+        <div class="omv-hero-actions">
+          {{ range . }}
+            {{ partial "omv-button.html" (dict "label" .name "href" (.url | relURL) "icon" .icon "class" (printf "on-dark %s" (.class | default ""))) }}
+          {{ end }}
+        </div>
+      {{ end }}
+      {{ with .highlights }}
+        <ul class="omv-hero-highlights">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

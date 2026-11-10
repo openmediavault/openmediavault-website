@@ -1,0 +1,13 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "openmediavault"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2. January 2006"
+  logo = "img/logo.svg"
+  description = "openmediavault is a free, open-source network attached storage (NAS) solution based on Debian Linux."
