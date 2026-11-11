@@ -3,7 +3,7 @@
   {{- with .Get "title" }}
     <div class="omv-card-header">
       {{- with $.Get "icon" }}<span class="omv-card-icon">{{ partial "icon.html" . }}</span>{{ end -}}
-      <h2 class="omv-card-title">{{ . }}</h2>
+      <h3 class="omv-card-title">{{ . }}</h3>
     </div>
   {{- end }}
   <div class="omv-card-body">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>

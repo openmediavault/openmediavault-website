@@ -7,17 +7,17 @@
   {{ $cur := $paginator.PageNumber }}
   {{ $last := $paginator.TotalPages }}
   <nav class="omv-pager" aria-label="Archive Page">
-    {{ with $paginator.Prev }}{{ partial "omv-button.html" (dict "label" "← Previous" "href" .URL "class" "outline") }}{{ end }}
+    {{ with $paginator.Prev }}{{ partial "omv-button.html" (dict "label" "← Previous" "href" .URL "class" "text") }}{{ end }}
     {{ $dots := false }}
     {{ range $paginator.Pagers }}
       {{ $n := .PageNumber }}
       {{ if or (eq $n 1) (eq $n $last) (and (ge $n (sub $cur 1)) (le $n (add $cur 1))) }}
         {{ $dots = false }}
-        {{ if eq $n $cur }}{{ partial "omv-button.html" (dict "label" $n "class" "current" "current" true) }}{{ else }}{{ partial "omv-button.html" (dict "label" $n "href" .URL "class" "outline") }}{{ end }}
+        {{ if eq $n $cur }}{{ partial "omv-button.html" (dict "label" $n "class" "text current" "current" true) }}{{ else }}{{ partial "omv-button.html" (dict "label" $n "href" .URL "class" "text") }}{{ end }}
       {{ else if not $dots }}
         {{ $dots = true }}<span class="omv-pager-gap">…</span>
       {{ end }}
     {{ end }}
-    {{ with $paginator.Next }}{{ partial "omv-button.html" (dict "label" "Next →" "href" .URL "class" "outline") }}{{ end }}
+    {{ with $paginator.Next }}{{ partial "omv-button.html" (dict "label" "Next →" "href" .URL "class" "text") }}{{ end }}
   </nav>
 {{ end }}

@@ -15,13 +15,13 @@ showPagination: false
 
 An overview of the available installation images can be found [here](https://sourceforge.net/projects/openmediavault/files/iso/). Alternatively, use the following links.
 
-{{< button href="https://sourceforge.net/projects/openmediavault/files/iso/8.3.1/openmediavault_8.3.1-amd64.iso" icon="mdi-download" class="outline" sub="Get the latest stable version" center="true" >}}Stable{{< /button >}}
+{{< button href="https://sourceforge.net/projects/openmediavault/files/iso/8.3.1/openmediavault_8.3.1-amd64.iso" icon="mdi-download" center="true" >}}Download stable{{< /button >}}
 
 ```text
 SHA256: 5ada7dea09dbb10365b6f245515e71c79c5398d8f8f1acda675ee6d8b572d2e5
 ```
 
-{{< button href="https://sourceforge.net/projects/openmediavault/files/iso/7.4.17/openmediavault_7.4.17-amd64.iso" icon="mdi-download" class="outline" sub="Get the latest oldstable version" center="true" >}}Oldstable{{< /button >}}
+{{< button href="https://sourceforge.net/projects/openmediavault/files/iso/7.4.17/openmediavault_7.4.17-amd64.iso" icon="mdi-download" center="true" >}}Download oldstable{{< /button >}}
 
 ```text
 SHA256: ee20ddab3e42b320972cf3446b413ac698b4e5b85d1482ec52c8fdf247ffb28e

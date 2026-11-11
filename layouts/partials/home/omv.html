@@ -8,7 +8,7 @@
       {{ range first (.count | default 2) (where site.RegularPages "Section" "blog") }}
         {{ partial "omv-post.html" (dict "page" . "style" "home") }}
       {{ end }}
-      <p class="omv-center">{{ partial "omv-button.html" (dict "label" "More" "href" ("blog/" | relURL) "class" "outline") }}</p>
+      <p class="omv-center">{{ partial "omv-button.html" (dict "label" "More" "href" ("blog/" | relURL) "class" "text") }}</p>
     </section>
   {{ end }}
 </div>

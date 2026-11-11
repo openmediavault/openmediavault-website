@@ -1,10 +1,10 @@
 {{- /*
   The only place that renders a button. Styles: "Buttons" in assets/css/custom.css.
-  Context (dict): label (HTML), href, class (variants: secondary, outline, on-dark, current),
-  icon (icon name), sub (second line), target, rel, current (renders a <span> instead of a link).
+  Context (dict): label (HTML), href, class (variants: text, on-dark, alt, current),
+  icon (icon name), target, rel, current (renders a <span> instead of a link).
 */ -}}
 {{- $class := printf "button %s" (.class | default "") | strings.TrimSpace -}}
-{{- $content := printf `%s<span class="button-text">%v%s</span>` (cond (ne (.icon | default "") "") (printf `<span class="button-icon">%s</span>` (partial "icon.html" .icon)) "" | safeHTML) .label (cond (ne (.sub | default "") "") (printf "<small>%s</small>" .sub) "") -}}
+{{- $content := printf `%s<span class="button-text">%v</span>` (cond (ne (.icon | default "") "") (printf `<span class="button-icon">%s</span>` (partial "icon.html" .icon)) "" | safeHTML) .label -}}
 {{- if .current -}}
 <span class="{{ $class }}" aria-current="page">{{ $content | safeHTML }}</span>
 {{- else -}}

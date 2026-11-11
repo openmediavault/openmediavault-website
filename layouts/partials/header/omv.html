@@ -76,3 +76,12 @@
     </div>
   </section>
 {{ end }}
+<script>
+  (function () {
+    var nav = document.querySelector('.omv-nav');
+    if (!nav) return;
+    function update() { nav.classList.toggle('scrolled', window.scrollY > 0); }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  })();
+</script>

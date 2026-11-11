@@ -33,7 +33,7 @@ Static pages live in `content/*.md` and set their URL explicitly (`url: "/about.
 
 - Code: fenced blocks with a language (`bash`, `console`, `yaml`, ...). A copy button is added automatically.
 - Alerts: `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]`.
-- Buttons: `{{< button href="/download.html" icon="mdi-download" sub="Second line" class="outline" >}}Download{{< /button >}}`. Variants (`class`): `secondary`, `outline`, `on-dark`; `center="true"` centers the button. All buttons (shortcode, hero, pager, ...) are rendered by `layouts/partials/omv-button.html`; the look is defined only in the "Buttons" block of `assets/css/custom.css` (`--btn-*` tokens, also for dark mode).
+- Buttons: `{{< button href="/download.html" icon="mdi-download" >}}Download{{< /button >}}`. Material 3 types: filled (default, for main actions) and `text` (for secondary actions, filled only as a hover state layer). Other variants (`class`): `on-dark` (white, for colored backgrounds), `alt`; `center="true"` centers the button. All buttons (shortcode, hero, pager, ...) are rendered by `layouts/partials/omv-button.html`; the look is defined only in the "Buttons" block of `assets/css/custom.css` (`--btn-*` tokens, also for dark mode).
 - Cards: wrap unordered lists (or any Markdown) in cards, optionally with title and icon. `cols="2"` places them in a two-column grid.
 
   ```text

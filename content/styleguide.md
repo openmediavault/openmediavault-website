@@ -68,10 +68,9 @@ services:
 
 ## Buttons
 
-{{< button href="/download.html" icon="mdi-download" sub="With second line" >}}Download{{< /button >}}
+{{< button href="/download.html" icon="mdi-download" >}}Download{{< /button >}}
 {{< button href="/install.html" >}}Install{{< /button >}}
-{{< button href="/install.html" class="secondary" >}}Secondary{{< /button >}}
-{{< button href="/install.html" class="outline" >}}Outline{{< /button >}}
+{{< button href="/install.html" class="text" >}}Text button{{< /button >}}
 
 ## Cards
 

@@ -32,4 +32,4 @@ The following plugins are available:
 {{< /card >}}
 {{< /cards >}}
 
-{{< button href="https://www.omv-extras.org" target="_blank" rel="noopener" class="outline" center="true" >}}More plugins{{< /button >}}
+{{< button href="https://www.omv-extras.org" target="_blank" rel="noopener" class="text" center="true" >}}More plugins{{< /button >}}

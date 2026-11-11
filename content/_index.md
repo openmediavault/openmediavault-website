@@ -12,7 +12,7 @@ hero:
     - name: "Install"
       url: "/install.html"
       icon: "mdi-console"
-      class: "outline"
+      class: "alt"
   highlights:
     - "Debian Linux"
     - "Web based administration"
@@ -50,6 +50,6 @@ latestNews:
 {{< /card >}}
 {{< /cards >}}
 
-{{< button href="/features.html" class="outline" center="true" >}}More{{< /button >}}
+{{< button href="/features.html" class="text" center="true" >}}More{{< /button >}}
 
 </section>
