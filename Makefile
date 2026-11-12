@@ -1,26 +1,30 @@
 HUGO_VERSION ?= 0.167.0
-PREFIX       ?= $(HOME)/.local/bin
-HUGO         ?= $(PREFIX)/hugo
+HUGO_IMAGE   ?= ghcr.io/gohugoio/hugo:v$(HUGO_VERSION)
+DOCKER       ?= docker
 PORT         ?= 1313
 
-ARCH := $(patsubst x86_64,amd64,$(patsubst aarch64,arm64,$(shell uname -m)))
-HUGO_URL := https://github.com/gohugoio/hugo/releases/download/v$(HUGO_VERSION)/hugo_extended_$(HUGO_VERSION)_linux-$(ARCH).tar.gz
+# Allocate a TTY in dev (for ctrl+c) but not in CI
+TTY := $(if $(CI),,-it)
 
-.PHONY: help install submodules build serve clean sync
+# Override with HUGO=hugo to use a local Hugo extended instead of the container
+HUGO ?= $(DOCKER) run --rm $(TTY) \
+	--user $(shell id -u):$(shell id -g) \
+	-e HUGO_CACHEDIR=/tmp/hugo_cache \
+	-e HUGO_ENVIRONMENT \
+	-v $(CURDIR):/project \
+	$(if $(filter serve,$(MAKECMDGOALS)),-p 127.0.0.1:$(PORT):$(PORT)) \
+	$(HUGO_IMAGE)
+
+.PHONY: help submodules build serve new clean sync
 
 help:
-	@echo "make install     install Hugo extended $(HUGO_VERSION) to $(PREFIX) (Linux)"
-	@echo "make build       build the site into public/"
+	@echo "make build       build the site into public/ (Hugo $(HUGO_VERSION) in Docker)"
 	@echo "make serve       start the dev server on http://localhost:$(PORT)"
+	@echo "make new POST=blog/2026-11-11-title.md   create a news post"
 	@echo "make clean       remove public/ and resources/_gen/"
 	@echo "make sync        clean build, then run ./sync.sh (local only, not in Git)"
-
-install:
-	@if [ "$$($(HUGO) version 2>/dev/null | grep -o 'v[0-9.]*' | head -1)" = "v$(HUGO_VERSION)" ] && $(HUGO) version | grep -q extended; then \
-		echo "Hugo $(HUGO_VERSION) extended is already installed in $(HUGO)"; \
-	else \
-		mkdir -p "$(PREFIX)" && curl -fsSL "$(HUGO_URL)" | tar -xz -C "$(PREFIX)" hugo && $(HUGO) version; \
-	fi
+	@echo ""
+	@echo "Variables: HUGO_VERSION, DOCKER (e.g. podman), PORT, HUGO=hugo (local binary)"
 
 submodules:
 	git submodule update --init --recursive
@@ -29,7 +33,11 @@ build: submodules
 	$(HUGO) --gc --minify
 
 serve: submodules
-	$(HUGO) server --bind 127.0.0.1 --port $(PORT) --disableFastRender
+	$(HUGO) server --bind 0.0.0.0 --port $(PORT) --disableFastRender
+
+new:
+	@test -n "$(POST)" || { echo "usage: make new POST=blog/2026-11-11-title.md"; exit 1; }
+	$(HUGO) new --kind blog $(POST)
 
 sync: clean build
 	./sync.sh

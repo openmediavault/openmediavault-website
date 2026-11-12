@@ -7,17 +7,18 @@ Source of <https://www.openmediavault.org>, built with [Hugo](https://gohugo.io/
 ```bash
 git clone --recurse-submodules git@github.com:openmediavault/openmediavault.github.io.git
 cd openmediavault.github.io
-make install       # Hugo extended to ~/.local/bin (Linux), skipped if present
 make serve         # http://localhost:1313
 make build         # site in public/
 ```
 
-`make help` lists all targets. `HUGO_VERSION`, `PREFIX` and `PORT` can be overridden, e.g. `make serve PORT=8080`.
+Docker (or Podman) is the only requirement: Hugo runs in the official container image `ghcr.io/gohugoio/hugo`, so nothing has to be installed.
+
+`make help` lists all targets. `HUGO_VERSION` and `PORT` can be overridden, e.g. `make serve PORT=8080`. Use `DOCKER=podman` for Podman, or `HUGO=hugo` to use a locally installed Hugo extended instead of the container.
 
 ## Writing a news post
 
 ```bash
-hugo new --kind blog blog/2026-11-11-new-updates-available.md
+make new POST=blog/2026-11-11-new-updates-available.md
 ```
 
 Edit the file, commit and push to `main`. GitHub Actions builds and deploys the site (`.github/workflows/pages.yml`).
