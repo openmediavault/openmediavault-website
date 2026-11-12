@@ -593,6 +593,10 @@ body .article-content > :last-child { margin-bottom: 0; }
 .omv-post-footer a:hover { color: var(--omv-link-hover); }
 .omv-post-footer .icon { display: inline-block; vertical-align: -0.15em; width: 1.3em; }
 .omv-post-footer .icon svg { width: 1em; height: 1em; }
+/* Category chips (M3 assist chip) */
+.omv-post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.omv-chip, .omv-chip:visited { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border: 1px solid var(--omv-border); border-radius: var(--omv-radius-sm); font-size: 12px; font-weight: 500; line-height: 1; color: var(--omv-text-muted); text-decoration: none; transition: background-color 0.15s; }
+.omv-chip:hover { background: var(--omv-header-current); border-color: transparent; color: var(--omv-header-current-fg); }
 .omv-pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; padding-top: 40px; border-top: 1px solid var(--omv-border); }
 .omv-pager .button { min-width: 40px; padding: 9px 16px; }
 .omv-pager-gap { padding: 0 4px; color: var(--omv-meta); }

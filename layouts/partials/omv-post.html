@@ -7,13 +7,13 @@
   {{ else }}
     <h2 class="omv-post-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title | emojify }}</a></h2>
   {{ end }}
-  <div class="omv-post-meta">{{ if eq $style "home" }}Posted: {{ end }}<time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date | time.Format "2. January 2006" }}</time></div>
+  <div class="omv-post-meta">
+    <time datetime="{{ $p.Date.Format "2006-01-02" }}">{{ $p.Date | time.Format "2. January 2006" }}</time>
+    {{ range $p.GetTerms "categories" }}<a class="omv-chip" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+  </div>
   <div class="omv-post-content">{{ $p.Content }}</div>
   {{ if ne $style "home" }}
     <footer class="omv-post-footer">
-      {{ with $p.GetTerms "categories" }}
-        <div>{{ partial "icon.html" "mdi-folder" }}{{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ $t.RelPermalink }}">{{ $t.LinkTitle }}</a>{{ end }}</div>
-      {{ end }}
       {{ if eq $style "single" }}
         {{ with $p.PrevInSection }}<div>{{ partial "icon.html" "mdi-chevron-left" }}<a href="{{ .RelPermalink }}" rel="prev">{{ .Title }}</a></div>{{ end }}
         {{ with $p.NextInSection }}<div>{{ partial "icon.html" "mdi-chevron-right" }}<a href="{{ .RelPermalink }}" rel="next">{{ .Title }}</a></div>{{ end }}
