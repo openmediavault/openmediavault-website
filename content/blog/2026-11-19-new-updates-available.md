@@ -1,5 +1,5 @@
 ---
-title: "2026 11 19 New Updates Available"
+title: "New Updates Available"
 date: 2026-11-19T17:52:27Z
 categories: ["News"]
 ---
