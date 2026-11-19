@@ -18,7 +18,7 @@ Docker (or Podman) is the only requirement: Hugo runs in the official container 
 ## Writing a news post
 
 ```bash
-make new POST=blog/2026-11-11-new-updates-available.md
+make new POST=blog/$(date +%Y-%m-%d)-new-updates-available.md
 ```
 
 Edit the file, commit and push to `main`. GitHub Actions builds and deploys the site (`.github/workflows/pages.yml`).
