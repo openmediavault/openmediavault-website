@@ -1,6 +1,7 @@
 ---
-title: "New Updates Available"
+title: "New updates available"
 date: 2026-11-19T17:52:27Z
+slug: "new-update-available-281"
 categories: ["News"]
 ---
 
