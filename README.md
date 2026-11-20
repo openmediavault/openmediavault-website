@@ -21,6 +21,19 @@ Docker (or Podman) is the only requirement: Hugo runs in the official container 
 make new POST=blog/$(date +%Y-%m-%d)-new-updates-available.md
 ```
 
+The archetype (`archetypes/blog.md`) fills in the front matter from the file name, with the date prefix removed and a unique ID appended to the slug:
+
+```yaml
+---
+title: "New updates available"
+date: 2026-11-20T01:17:14
+slug: "new-updates-available-7fb9a538"
+categories: ["News"]
+---
+```
+
+The ID is generated once on creation, so the URL stays stable. Change `categories` if needed.
+
 Edit the file, commit and push to `main`. GitHub Actions builds and deploys the site (`.github/workflows/pages.yml`).
 
 Front matter: `title`, `date`, `categories` (`News`, `Common`, `Misc`, `Coding`, `Ubuntu`) and optionally `slug`.

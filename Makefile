@@ -13,6 +13,7 @@ HUGO ?= $(if $(CONTAINER_RUNTIME),$(CONTAINER_RUNTIME),$(error Neither podman no
 	$(CONTAINER_USERNS) \
 	-e HUGO_CACHEDIR=/tmp/hugo_cache \
 	-e HUGO_ENVIRONMENT \
+	-e TZ=Europe/Berlin \
 	-v $(CURDIR):/project \
 	$(if $(filter serve,$(MAKECMDGOALS)),-p 127.0.0.1:$(PORT):$(PORT)) \
 	$(HUGO_IMAGE)
