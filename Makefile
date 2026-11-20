@@ -18,9 +18,10 @@ HUGO ?= $(if $(CONTAINER_RUNTIME),$(CONTAINER_RUNTIME),$(error Neither podman no
 	$(if $(filter serve,$(MAKECMDGOALS)),-p 127.0.0.1:$(PORT):$(PORT)) \
 	$(HUGO_IMAGE)
 
-.PHONY: help submodules build serve new clean sync
+.PHONY: help submodules update build serve new clean sync
 
 help:
+	@echo "make update      update the Blowfish theme to its latest release (shallow); review and commit"
 	@echo "make build       build the site into public/ (Hugo $(HUGO_VERSION) in a container)"
 	@echo "make serve       start the dev server on http://localhost:$(PORT)"
 	@echo "make new POST=blog/2026-11-11-title.md   create a news post"
@@ -30,7 +31,15 @@ help:
 	@echo "Variables: HUGO_VERSION, CONTAINER_RUNTIME, PORT, HUGO=hugo (local binary)"
 
 submodules:
-	git submodule update --init --recursive
+	git submodule update --init --recursive --depth 1
+
+update: submodules
+	@tag=$$(git ls-remote --tags --refs --sort=-v:refname https://github.com/nunocoracao/blowfish.git 'v*' | sed -n '1s|.*refs/tags/||p'); \
+	test -n "$$tag" || { echo "no release tag found"; exit 1; }; \
+	echo "Blowfish -> $$tag"; \
+	git -C themes/blowfish fetch --depth 1 origin tag $$tag && git -C themes/blowfish checkout -q $$tag
+	@git status --short themes/blowfish
+	@echo "Hugo is pinned to $(HUGO_VERSION) (HUGO_VERSION in Makefile); check https://github.com/gohugoio/hugo/releases"
 
 build: submodules
 	$(HUGO) --gc --minify
