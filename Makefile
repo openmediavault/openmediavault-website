@@ -1,4 +1,4 @@
-HUGO_VERSION ?= 0.167.0
+HUGO_VERSION ?= 0.170.1
 HUGO_IMAGE   ?= ghcr.io/gohugoio/hugo:v$(HUGO_VERSION)
 CONTAINER_RUNTIME ?= $(shell command -v podman 2>/dev/null || command -v docker 2>/dev/null)
 CONTAINER_USERNS := $(if $(filter podman,$(notdir $(CONTAINER_RUNTIME))),--userns=keep-id)

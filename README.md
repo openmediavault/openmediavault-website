@@ -1,6 +1,6 @@
 # openmediavault.org
 
-Source of <https://www.openmediavault.org>, built with [Hugo](https://gohugo.io/) (extended, v0.167.0) and the [Blowfish](https://blowfish.page/) theme.
+Source of <https://www.openmediavault.org>, built with [Hugo](https://gohugo.io/) v0.170.1 and the [Blowfish](https://blowfish.page/) theme.
 
 ## Local development
 
@@ -13,7 +13,7 @@ make build         # site in public/
 
 Docker (or Podman) is the only requirement: Hugo runs in the official container image `ghcr.io/gohugoio/hugo`, so nothing has to be installed.
 
-`make help` lists all targets. `HUGO_VERSION` and `PORT` can be overridden, e.g. `make serve PORT=8080`. Use `DOCKER=podman` for Podman, or `HUGO=hugo` to use a locally installed Hugo extended instead of the container.
+`make help` lists all targets. `HUGO_VERSION` and `PORT` can be overridden, e.g. `make serve PORT=8080`. Use `DOCKER=podman` for Podman, or `HUGO=hugo` to use a locally installed Hugo instead of the container.
 
 ## Writing a news post
 
