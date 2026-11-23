@@ -445,6 +445,18 @@ html.dark .omv-dark-hide { display: none !important; }
   color: var(--omv-hero-fg);
   background: var(--omv-hero-bg);
 }
+/* photo blended into the blue: luminosity keeps the hero hue, gradient fades the edges */
+.omv-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, var(--omv-hero-bg) 0%, transparent 60%, var(--omv-hero-bg) 100%),
+    var(--omv-hero-img) center / cover no-repeat;
+  mix-blend-mode: luminosity;
+  opacity: 0.3;
+  pointer-events: none;
+}
 .omv-hero-inner { position: relative; z-index: 1; max-width: var(--omv-container); margin: 0 auto; padding: 0 40px; }
 .omv-hero-title {
   max-width: 850px;

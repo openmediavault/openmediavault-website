@@ -56,7 +56,8 @@
   });
 </script>
 {{ with .Params.hero }}
-  <section class="omv-hero">
+  {{ $img := resources.Get "img/hero.jpg" }}
+  <section class="omv-hero"{{ with $img }} style="--omv-hero-img: url('{{ .RelPermalink }}')"{{ end }}>
     <div class="omv-hero-inner">
       <h1 class="omv-hero-title">{{ .title }}</h1>
       {{ with .subtitle }}<p class="omv-hero-subtitle">{{ . }}</p>{{ end }}
