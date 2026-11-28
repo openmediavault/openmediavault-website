@@ -143,32 +143,32 @@
   --omv-hero-bg: var(--omv-corporate-darker);
   --omv-hero-fg: #fff;
   --omv-hero-fg-soft: rgba(255, 255, 255, 0.86);
-  --omv-text: #181c1e; /* M3 on-surface (neutral 10) */
-  --omv-text-muted: #434749; /* M3 on-surface-variant (neutral-variant 30) */
+  --omv-text: #171c1f; /* M3 on-surface (neutral 10) */
+  --omv-text-muted: #41474e; /* M3 on-surface-variant (neutral-variant 30) */
   --omv-link: #1b7bba;
   --omv-link-hover: #145f93;
   --omv-heading-link: #267eb8;
-  --omv-border: #c3c7c9; /* M3 outline-variant (neutral-variant 80) */
+  --omv-border: #c1c7cf; /* M3 outline-variant (neutral-variant 80) */
   --omv-radius-sm: 0.5rem;
   --omv-radius: 0.75rem;
   --omv-radius-lg: 1rem;
-  --omv-meta: #434749;
+  --omv-meta: #41474e;
   --omv-bg: #ffffff;
-  --omv-card-bg: #f1f4f6; /* M3 surface-container-low (neutral 96), as mat-card in the WebUI */
-  --omv-card-icon-bg: #e5e9eb; /* M3 surface-container-high (neutral 92) */
+  --omv-card-bg: #eff4f7; /* M3 surface-container-low (neutral 96), as mat-card in the WebUI */
+  --omv-card-icon-bg: #e4e9ec; /* M3 surface-container-high (neutral 92) */
   --omv-nav-bg: #5dacdf;
   --omv-nav-hover: #4a9ecf;
   /* Material 3 roles of the OMV WebUI: surface, on-surface-variant, secondary-container */
-  --omv-header-bg: #f7fafc;
-  --omv-header-fg: #434749;
-  --omv-header-hover: rgba(24, 28, 30, 0.08);
+  --omv-header-bg: #f5fafd;
+  --omv-header-fg: #41474e;
+  --omv-header-hover: rgba(23, 28, 31, 0.08);
   --omv-header-current: #d2e5f3;
   --omv-header-current-fg: #0b1e28;
-  --omv-header-menu-bg: #ebeef0;
+  --omv-header-menu-bg: #eaeff2; /* M3 surface-container (neutral 94) */
   --omv-header-border: var(--omv-corporate-default);
   --omv-header-height: 64px; /* Workbench: 4rem */
   --omv-header-line: 4px; /* Workbench: accent line 0.25rem */
-  --omv-logo: #434749; /* M3 on-surface-variant (neutral-variant 30), as the logo in the OMV WebUI */
+  --omv-logo: #41474e; /* M3 on-surface-variant (neutral-variant 30), as the logo in the OMV WebUI */
   --omv-footer-bg: var(--omv-nav-bg);
   --omv-footer-link: #fff;
   --omv-container: 1120px;
@@ -209,25 +209,25 @@
 }
 
 html.dark {
-  --omv-text: #e0e3e5; /* M3 on-surface (neutral 90) */
-  --omv-text-muted: #c3c7c9; /* M3 on-surface-variant (neutral-variant 80) */
+  --omv-text: #dce3ee; /* M3 on-surface (neutral 90) */
+  --omv-text-muted: #bbc8d8; /* M3 on-surface-variant (neutral-variant 80) */
   --omv-link: #85c3ec;
   --omv-link-hover: #b9dff8;
   --omv-heading-link: #5dacdf;
-  --omv-border: #434749; /* M3 outline-variant (neutral-variant 30) */
-  --omv-meta: #c3c7c9;
+  --omv-border: #3c4855; /* M3 outline-variant (neutral-variant 30) */
+  --omv-meta: #bbc8d8;
   --omv-bg: rgb(var(--color-neutral-800));
-  --omv-card-bg: #181c1e; /* M3 surface-container-low (neutral 10) */
-  --omv-card-icon-bg: #262b2c; /* M3 surface-container-high (neutral 17) */
+  --omv-card-bg: #151c24; /* M3 surface-container-low (neutral 10) */
+  --omv-card-icon-bg: #242b33; /* M3 surface-container-high (neutral 17) */
   --omv-nav-bg: #164f77;
   --omv-nav-hover: #1f6190;
-  --omv-header-bg: #101416;
-  --omv-header-fg: #c3c7c9;
-  --omv-header-hover: rgba(224, 227, 229, 0.08);
+  --omv-header-bg: #0d141b;
+  --omv-header-fg: #bbc8d8;
+  --omv-header-hover: rgba(220, 227, 238, 0.08);
   --omv-header-current: #374954;
   --omv-header-current-fg: #d2e5f3;
-  --omv-header-menu-bg: #1c2022;
-  --omv-logo: #c3c7c9; /* M3 on-surface-variant (neutral-variant 80) */
+  --omv-header-menu-bg: #192028; /* M3 surface-container (neutral 12) */
+  --omv-logo: #bbc8d8; /* M3 on-surface-variant (neutral-variant 80) */
   --omv-footer-bg: var(--omv-nav-bg);
   --omv-hero-bg: #0f3a56;
   --omv-hero-fg: #fff;
